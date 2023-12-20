@@ -1,15 +1,3 @@
-class Person(string name, int age) : IComparable<Person>
-{
-    public string Name { get; set; } = name;
-    public int Age { get; set; } = age;
-
-    public int CompareTo(Person? other)
-    {
-        if (this.Age < other?.Age) return -1;
-        if (this.Age == other?.Age) return 0;
-        return 1;
-    }
-}
 
 class PriorityQueue<T>(bool isMaxHeap = true) where T : IComparable<T>
 {
@@ -91,4 +79,17 @@ class PriorityQueue<T>(bool isMaxHeap = true) where T : IComparable<T>
 
     private void Swap(int i, int j) =>
         (_heap[j], _heap[i]) = (_heap[i], _heap[j]);
+}
+
+class Person(string name, int age) : IComparable<Person>
+{
+    public string Name { get; set; } = name;
+    public int Age { get; set; } = age;
+
+    public int CompareTo(Person? other)
+    {
+        if (this.Age < other?.Age) return -1;
+        if (this.Age == other?.Age) return 0;
+        return 1;
+    }
 }
